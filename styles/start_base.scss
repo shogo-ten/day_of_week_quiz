@@ -1,0 +1,145 @@
+@import "modules/mixin";
+
+body {
+  background-color: #6ab3b7;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  font-family: 'Zen Kaku Gothic Antique', sans-serif;
+  // background-image: url("../picture/math.jpg");
+}
+
+.cube {
+  position: absolute;
+  top: 80vh;
+  left: 45vw;
+  width: 10px;
+  height: 10px;
+  border: solid 0.1px darken(#71968F, 8%);
+  transform-origin: top left;
+  transform:scale(0) rotate(0deg) translate(-50%, -50%);
+  animation: cube 10s ease-in forwards infinite;
+  z-index: -1;
+
+  @for $i from 2 through 10 {
+    &:nth-child(#{$i}) {
+      animation-delay: 1s * $i;
+      left: 5vw + $i * 10vw;
+      top: random(100) + vh;
+    }
+  }
+  &:nth-child(2n) {
+    border-color: lighten(#BFB5A3, 10%);
+  }
+}
+
+@keyframes cube {
+  from {
+    transform: scale(0) rotate(0deg) translate(-50%, -50%);
+    opacity: 1;
+  }
+  to {
+    transform: scale(20) rotate(960deg) translate(-50%, -50%);
+    opacity: 0;
+  }
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+
+.head {
+  display: block;
+  flex-flow: column;
+  font-size: 10em;
+  color: rgba(1, 1, 1, 0.5);
+  margin: 0.5em 0px;
+  padding: 0.5em 1em;
+}
+
+a {
+  text-decoration: none;
+  margin-bottom: 20px;
+}
+
+a {
+  display: block;
+  width: 20em;
+  padding: 0.4em 0;
+  margin-bottom: 1em;
+  border-radius: 10px;
+  background-repeat: no-repeat;
+  background-position: 100% 0;
+  background-size: 200% auto;
+  background-image: linear-gradient(
+    to right,
+    #00B4D8 0%,
+    #03045e 50%,
+    #000000 50%,
+    #000000 100%
+  );
+  // box-shadow: 0 3px 10px rgb(0 0 0 / 16%);
+  transition: background-position ease 0.4s;
+  text-align: center;
+  color: #E0E0E0;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 3em;
+}
+
+a:hover {
+  background-position: 0 0;
+}
+
+
+.animate-title {
+  color: #E6E6E6;
+  opacity: 0;
+  font-size:11vh;
+
+  &.inview {
+    opacity: 1;
+
+    & .char {
+      display: inline-block;
+
+      @include animation(
+        $name: kf-animate-chars,
+        $duration: 0.5s,
+        $timing-function: cubic-bezier(0.39, 1.57, 0.58, 1),
+        $fill-mode: both
+      );
+
+      @for $i from 1 through 9 {
+          &:nth-child(#{$i}) {
+              animation-delay: $i * 0.08s;
+          }
+      }
+    }
+  }
+}
+
+@keyframes kf-animate-chars {
+  0% {
+    opacity: 0;
+    transform: translateY(-50%);
+    text-shadow:  0 0 0px black;
+  }
+
+  50% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    text-shadow:  5px 5px 30px black;
+  }
+}

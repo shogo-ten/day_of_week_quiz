@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="/styles/index.css">
+  <link rel="shortcut icon" href="favicon.ico" type="image/vnd.microsoft.icon">
+</head>
+<body>
+  <div id="logo">
+    <a href="start_screen.html" class="btn title">位相幾何学研究室</a>
+  </div>
+  <div class="container">
+    <div class="quiz-box">
+      <!-- <span class="box-title">第◯問</span> -->
+      <div id="js-question" class="fadeUp alert-primary" role="alert">
+        A simple primary alert-check it out!
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <button type="button" class="btn btn-primary">Primary</button>
+      <button type="button" class="ml-1 btn btn-primary">Primary</button>
+      <button type="button" class="ml-1 btn btn-primary">Primary</button>
+      <button type="button" class="ml-1 btn btn-primary">Primary</button>
+    </div>
+    <button id="open-btn" class="hint-event" type="button">ヒント</button>
+    <div id="hint" class="hint-event">
+      <div class="flex">
+        <div id="hint-inner">
+          <p class="hint-text">ヒントが入ります。</p>
+          <button id="close-btn" class="hint-event" type="button">閉じる</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="fullOverlay">
+    <div class="answers">
+
+    </div>
+  </div>
+  <div id="easyModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 id="resultMessage">Great job 🎉</h1>
+        <!-- <span class="modalClose">×</span> -->
+      </div>
+      <div class="modal-body">
+        <div class="body-information">
+          <a class="btn-information" href="easy.html"><span>もう一度</span></a>
+          <a class="btn-information" href="start_screen.html"><span>レベルを選択</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="/javascript/libs/set_up_quiz.js"></script>
+  <script src="/javascript/libs/add_evt_ans.js"></script>
+  <script src="/javascript/hard_quiz.js"></script>
+</body>
+</html>

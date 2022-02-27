@@ -1,0 +1,333 @@
+@charset "UTF-8";
+html {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+body {
+  font-family: 'Zen Kaku Gothic Antique', sans-serif;
+}
+
+.logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.logo .logo-title {
+  text-decoration: none;
+  font-size: 1.5em;
+  color: #62c1ce;
+}
+
+.fullOverlay {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(100, 100, 100, 0.8);
+  z-index: 8888888;
+  font-size: 200px;
+}
+
+.fullOverlay.inview {
+  opacity: 1;
+  visibility: visible;
+}
+
+.fullOverlay .answers {
+  font-family: Yu Gothic UI-MONOSPACE;
+  position: absolute;
+  left: 50%;
+  top: 25%;
+  width: 100%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  color: #fafafa;
+  font-size: 1.5em;
+  text-align: center;
+}
+
+.fullOverlay .answers.correct::before {
+  content: '◯';
+  color: red;
+}
+
+.fullOverlay .answers.incorrect::before {
+  content: 'X';
+  color: blue;
+}
+
+.box-title {
+  position: relative;
+  display: inline-block;
+  padding: 0.5em 5em;
+  height: 25px;
+  line-height: 25px;
+  font-size: 3em;
+  background: #62c1ce;
+  color: #ffffff;
+  font-weight: bold;
+  border-radius: 5px 5px 0 0;
+}
+
+.alert-primary {
+  width: 50%;
+  height: auto;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border: solid 3px #62c1ce;
+  padding: 0.5em 2em;
+  font-size: 3em;
+}
+
+.justify-content-center {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 2em;
+  height: 5em;
+  font-size: 1.5em;
+  width: 60%;
+  margin: 0  auto;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #eb6100;
+  border-bottom: 0.3em solid #b84c00;
+  font-size: 1em;
+  -webkit-box-shadow: 0.4em 5em rgba(0, 0, 0, 0.3);
+  box-shadow: 0em 0.2em rgba(0, 0, 0, 0.3);
+  border-radius: 0.8rem;
+}
+
+.btn-primary:hover {
+  -webkit-transition: 0.25s;
+  transition: 0.25s;
+  margin-top: 0.3em;
+  color: #fff;
+  background: #f56500;
+  border-bottom: 0em solid #b84c00;
+}
+
+.answers {
+  display: block;
+  font-weight: bold;
+  -webkit-text-stroke-color: white;
+  -webkit-text-stroke-width: 2px;
+}
+
+.modal {
+  display: block;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+}
+
+.modal.inview {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-content {
+  background-color: #f4f4f4;
+  margin: 20% auto;
+  width: 50%;
+  -webkit-box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
+          box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
+  -webkit-animation-name: modalopen;
+          animation-name: modalopen;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+}
+
+@-webkit-keyframes modalopen {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modalopen {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modal-header h1 {
+  margin: 1rem 0;
+}
+
+.modal-header {
+  background: lightblue;
+  padding: 3px 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.modalClose {
+  font-size: 2rem;
+}
+
+.modalClose:hover {
+  cursor: pointer;
+}
+
+.modal-body {
+  padding: 10px 20px;
+  color: black;
+}
+
+.btn,
+a.btn,
+button.btn {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.5;
+  position: relative;
+  display: inline-block;
+  padding: 0.1rem 3rem;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+}
+
+.body-information {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 1em;
+  height: 3em;
+  font-size: 1.6em;
+  margin: 0.3em;
+}
+
+.btn-information {
+  color: #fff;
+  background-color: #eb6100;
+  border-bottom: 0.3em solid #b84c00;
+  font-size: 1em;
+  -webkit-box-shadow: 0.4em 5em rgba(0, 0, 0, 0.3);
+  box-shadow: 0em 0.2em rgba(0, 0, 0, 0.3);
+  border-radius: 0.8rem;
+  padding: 1em 3.3em;
+  text-decoration: none;
+}
+
+.btn-information:hover {
+  -webkit-transition: 0.25s;
+  transition: 0.25s;
+  margin-top: 0.3em;
+  color: #fff;
+  background: #f56500;
+  border-bottom: 0em solid #b84c00;
+}
+
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-top: 10%;
+}
+
+#hint {
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  width: 100vw;
+  height: 100vh;
+  visibility: hidden;
+  opacity: 0;
+  background: rgba(0, 0, 0, 0.6);
+  -webkit-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out;
+}
+
+#hint.hint-on {
+  visibility: visible;
+  opacity: 1;
+}
+
+.flex {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+#hint-inner {
+  padding: 10px 60px;
+  background-color: #FFF;
+  text-align: center;
+  font-size: 3em;
+}
+
+#open-btn {
+  margin: 20px auto;
+  padding: 10px 30px;
+  background-color: #eee;
+  border: solid #ccc 1px;
+  cursor: pointer;
+}
+
+#close-btn {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 30px;
+  background-color: #eee;
+  border: solid #ccc 1px;
+  cursor: pointer;
+}
+/*# sourceMappingURL=index.css.map */
